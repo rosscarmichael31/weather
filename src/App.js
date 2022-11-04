@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Weather } from "./Weather.js";
+import { weather } from "./data";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Weather</h1>
+      <div className="container">
+        {weather.map((place) => {
+          return (
+            <Weather
+              city={place.city}
+              temp={place.temp}
+              description={place.description}
+              high={place.high}
+              low={place.low}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
